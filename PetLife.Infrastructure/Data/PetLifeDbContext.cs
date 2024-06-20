@@ -16,5 +16,7 @@ namespace PetLife.Infrastructure.Data
         public DbSet<Test> Pets { get; set; }
         public DbSet<Treatment> Treatments { get; set; }
         public DbSet<Vaccination> Vaccinations { get; set; }
+        public DbSet<Doctor> Doctors { get; set; }
+
     }
 }
