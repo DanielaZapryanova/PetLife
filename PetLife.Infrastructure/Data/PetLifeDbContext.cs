@@ -21,6 +21,7 @@ namespace PetLife.Infrastructure.Data
         public DbSet<Deworming> Dewormings { get; set; }
         public DbSet<Administrator> Administrators { get; set; }
         public DbSet<Owner> Owners { get; set; }
+        public DbSet<Animal> Animals { get; set; }
 
     }
 }
