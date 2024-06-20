@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetLife.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using PetLife.Infrastructure.Data;
 namespace PetLife.Infrastructure.Migrations
 {
     [DbContext(typeof(PetLifeDbContext))]
-    partial class PetLifeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240620100533_CreatedAdministratorTable")]
+    partial class CreatedAdministratorTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
