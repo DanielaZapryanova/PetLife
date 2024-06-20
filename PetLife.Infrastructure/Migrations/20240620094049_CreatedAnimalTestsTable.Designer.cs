@@ -12,8 +12,8 @@ using PetLife.Infrastructure.Data;
 namespace PetLife.Infrastructure.Migrations
 {
     [DbContext(typeof(PetLifeDbContext))]
-    [Migration("20240618202738_CreatedPetTestTable")]
-    partial class CreatedPetTestTable
+    [Migration("20240620094049_CreatedAnimalTestsTable")]
+    partial class CreatedAnimalTestsTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

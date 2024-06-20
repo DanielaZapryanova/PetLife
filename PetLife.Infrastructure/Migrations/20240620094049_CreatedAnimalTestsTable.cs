@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace PetLife.Infrastructure.Migrations
 {
     /// <inheritdoc />
-    public partial class CreatedPetTestTable : Migration
+    public partial class CreatedAnimalTestsTable : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

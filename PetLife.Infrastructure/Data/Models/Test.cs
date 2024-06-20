@@ -14,12 +14,13 @@ namespace PetLife.Infrastructure.Data.Models
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
+        [Required]
+        [DisplayFormat(DataFormatString = "{yyyy-MM-dd}")]
         public DateTime DateOfConduction { get; set; }
 
-        public string Path { get; set; }
-
-        //public Pet Pet { get; set; }
+        [Required]
+        public string? Path { get; set; }
     }
 }
