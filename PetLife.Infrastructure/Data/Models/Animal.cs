@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace PetLife.Infrastructure.Data.Models
 {
@@ -33,5 +34,8 @@ namespace PetLife.Infrastructure.Data.Models
 
         [Required]
         public string? Other { get; set; }
+
+        public int OwnerId { get; set; }
+        public Owner AnimalOwner { get; set; }
     }
 }
