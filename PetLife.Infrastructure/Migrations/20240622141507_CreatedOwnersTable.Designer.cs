@@ -12,8 +12,8 @@ using PetLife.Infrastructure.Data;
 namespace PetLife.Infrastructure.Migrations
 {
     [DbContext(typeof(PetLifeDbContext))]
-    [Migration("20240620130319_CreatedAnimalOwnersTable")]
-    partial class CreatedAnimalOwnersTable
+    [Migration("20240622141507_CreatedOwnersTable")]
+    partial class CreatedOwnersTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -109,10 +109,10 @@ namespace PetLife.Infrastructure.Migrations
             modelBuilder.Entity("PetLife.Infrastructure.Data.Models.Owner", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
@@ -133,7 +133,7 @@ namespace PetLife.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id", "Username");
 
                     b.ToTable("Owners");
                 });

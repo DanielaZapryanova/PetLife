@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PetLife.Infrastructure.Data;
 
@@ -11,9 +12,11 @@ using PetLife.Infrastructure.Data;
 namespace PetLife.Infrastructure.Migrations
 {
     [DbContext(typeof(PetLifeDbContext))]
-    partial class PetLifeDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240622141650_CreatedAnimalsTable")]
+    partial class CreatedAnimalsTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -101,9 +104,6 @@ namespace PetLife.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AnimalId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("DateOfTreatment")
                         .HasColumnType("datetime2");
 
@@ -112,8 +112,6 @@ namespace PetLife.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("AnimalId");
 
                     b.ToTable("Dewormings");
                 });
@@ -249,17 +247,6 @@ namespace PetLife.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Vaccinations");
-                });
-
-            modelBuilder.Entity("PetLife.Infrastructure.Data.Models.Deworming", b =>
-                {
-                    b.HasOne("PetLife.Infrastructure.Data.Models.Animal", "Animal")
-                        .WithMany()
-                        .HasForeignKey("AnimalId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Animal");
                 });
 #pragma warning restore 612, 618
         }

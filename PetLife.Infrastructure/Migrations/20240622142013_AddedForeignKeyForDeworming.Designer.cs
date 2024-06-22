@@ -12,8 +12,8 @@ using PetLife.Infrastructure.Data;
 namespace PetLife.Infrastructure.Migrations
 {
     [DbContext(typeof(PetLifeDbContext))]
-    [Migration("20240620131046_CreatedAnimalsTable")]
-    partial class CreatedAnimalsTable
+    [Migration("20240622142013_AddedForeignKeyForDeworming")]
+    partial class AddedForeignKeyForDeworming
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -104,6 +104,9 @@ namespace PetLife.Infrastructure.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("AnimalId")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("DateOfTreatment")
                         .HasColumnType("datetime2");
 
@@ -112,6 +115,8 @@ namespace PetLife.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AnimalId");
 
                     b.ToTable("Dewormings");
                 });
@@ -148,10 +153,10 @@ namespace PetLife.Infrastructure.Migrations
             modelBuilder.Entity("PetLife.Infrastructure.Data.Models.Owner", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<int>("Age")
                         .HasColumnType("int");
@@ -172,7 +177,7 @@ namespace PetLife.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("Id", "Username");
 
                     b.ToTable("Owners");
                 });
@@ -247,6 +252,17 @@ namespace PetLife.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Vaccinations");
+                });
+
+            modelBuilder.Entity("PetLife.Infrastructure.Data.Models.Deworming", b =>
+                {
+                    b.HasOne("PetLife.Infrastructure.Data.Models.Animal", "Animal")
+                        .WithMany()
+                        .HasForeignKey("AnimalId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Animal");
                 });
 #pragma warning restore 612, 618
         }
