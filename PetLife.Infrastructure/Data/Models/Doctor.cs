@@ -23,5 +23,7 @@ namespace PetLife.Infrastructure.Data.Models
 
         [Required]
         public string? Password { get; set; }
+
+        public ICollection<Animal> Animals { get; set; }
     }
 }

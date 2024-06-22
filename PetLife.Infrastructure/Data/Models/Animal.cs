@@ -37,5 +37,7 @@ namespace PetLife.Infrastructure.Data.Models
 
         public int OwnerId { get; set; }
         public Owner AnimalOwner { get; set; }
+        public int DoctorId { get; set; }
+        public Doctor AnimalDoctor { get; set; }
     }
 }
