@@ -13,6 +13,11 @@ namespace PetLife.Infrastructure.Data.Models
     {
         [Key]
         public int Id { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(TypeId))]
+        public virtual AnimalType AnimalType { get; set; }
+        public int TypeId { get; set; }
         public string? Image { get; set; }
 
         [Required]
@@ -39,5 +44,13 @@ namespace PetLife.Infrastructure.Data.Models
         public Owner AnimalOwner { get; set; }
         public int DoctorId { get; set; }
         public Doctor AnimalDoctor { get; set; }
+
+        public ICollection<Vaccination> Vaccinations { get; set; }
+
+        public ICollection<Deworming> Dewormings { get; set; }
+
+        public ICollection<Treatment> Treatments { get; set; }
+
+        public ICollection<Test> Tests { get; set; }
     }
 }
