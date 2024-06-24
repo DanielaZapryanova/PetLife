@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PetLife.Infrastructure.Data.Models
 {
@@ -22,5 +23,10 @@ namespace PetLife.Infrastructure.Data.Models
 
         [Required]
         public string? Path { get; set; }
+
+        public  int AnimalId { get; set; }
+        [Required]
+        [ForeignKey(nameof(AnimalId))]
+        public virtual Animal Animal { get; set;}
     }
 }
