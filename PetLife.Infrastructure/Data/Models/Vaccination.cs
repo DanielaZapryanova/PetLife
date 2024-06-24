@@ -20,5 +20,11 @@ namespace PetLife.Infrastructure.Data.Models
         [Required]
         [DisplayFormat(DataFormatString = "{yyyy-MM-dd}")]
         public DateTime DateOfVaccination { get; set; }
+
+        public int AnimalId { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(AnimalId))]
+        public virtual Animal Animal { get; set; }
     }
 }
