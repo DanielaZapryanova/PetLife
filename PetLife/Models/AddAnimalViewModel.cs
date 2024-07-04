@@ -38,18 +38,18 @@ namespace PetLife.Models
         public int TestId { get; set; }
 
 
-        public IList<VaccinationViewModel> PossibleVaccinations { get; set; }
+        public IList<VaccinationViewModel>? PossibleVaccinations { get; set; }
 
-        public IList<DewormingViewModel> PossibleDewormings { get; set; }
+        public IList<DewormingViewModel>? PossibleDewormings { get; set; }
 
-        public IList<TreatmentViewModel> PossibleTreatments { get; set; }
+        public IList<TreatmentViewModel>? PossibleTreatments { get; set; }
 
-        public IList<TestViewModelt> PossibleTests { get; set; }
+        public IList<TestViewModelt>? PossibleTests { get; set; }
 
         public IList<OwnerViewModel> PossibleOwner { get; set; }
 
         public IList<DoctorViewModel> PossibleDoctor { get; set; }
 
-        public IList<AnimalTypeViewModelt> PossibleAnimalType { get; set; }
+        public IList<AnimalTypeViewModel> PossibleAnimalType { get; set; }
     }
 }

@@ -18,9 +18,24 @@ namespace PetLife.Controllers
             return View();
         }
 
+        public IActionResult ForUs()
+        {
+            return View("ForUs");
+        }
+
+        public IActionResult Contacts()
+        {
+            return View("Contacts");
+        }
+
+        public IActionResult ImportantInformation()
+        {
+            return View("ImportantInformation");
+        }
+
         public IActionResult Privacy()
         {
-            return View();
+            return View("Privacy");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
